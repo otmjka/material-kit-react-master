@@ -41,7 +41,7 @@ export default function HeaderLinks(props) {
           color="transparent"
           className={classes.navLink}
         >
-          <LockOpen className={classes.icons} /> Log in
+          <LockOpen className={classes.icons} /> Login
         </Button>
       </ListItem>
       <ListItem className={classes.listItem}>

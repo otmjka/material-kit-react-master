@@ -4,6 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 // @material-ui/icons
 import Chat from "@material-ui/icons/Chat";
+import SpeedIcon from '@material-ui/icons/Speed';
 import VerifiedUser from "@material-ui/icons/VerifiedUser";
 import Fingerprint from "@material-ui/icons/Fingerprint";
 // core components
@@ -21,13 +22,10 @@ export default function ProductSection() {
     <div className={classes.section}>
       <GridContainer justify="center">
         <GridItem xs={12} sm={12} md={8}>
-          <h2 className={classes.title}>Let{"'"}s talk product</h2>
+          <h2 className={classes.title}>About our service</h2>
           <h5 className={classes.description}>
-            This is the paragraph where you can write more details about your
-            product. Keep you user engaged by providing meaningful information.
-            Remember that by this time, the user is curious, otherwise he wouldn
-            {"'"}t scroll to get here. Add a button if you want the user to see
-            more.
+            With our SMS service you can send text messages with your company name as sender name.
+            You can use our control panel to easily send text messages, or implement our API into your existing application.
           </h5>
         </GridItem>
       </GridContainer>
@@ -35,8 +33,8 @@ export default function ProductSection() {
         <GridContainer>
           <GridItem xs={12} sm={12} md={4}>
             <InfoArea
-              title="Free Chat"
-              description="Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough."
+              title="Text messages"
+              description="Send SMS to more than 200 countries, with custom sender name."
               icon={Chat}
               iconColor="info"
               vertical
@@ -44,17 +42,17 @@ export default function ProductSection() {
           </GridItem>
           <GridItem xs={12} sm={12} md={4}>
             <InfoArea
-              title="Verified Users"
-              description="Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough."
-              icon={VerifiedUser}
+              title="Blazing fast"
+              description="Messages are delivered at a premium speed, near instantly."
+              icon={SpeedIcon}
               iconColor="success"
               vertical
             />
           </GridItem>
           <GridItem xs={12} sm={12} md={4}>
             <InfoArea
-              title="Fingerprint"
-              description="Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough."
+              title="High secuirty"
+              description="Strong secuirty is our highest priority, therefore we among other measures use military grade encryption."
               icon={Fingerprint}
               iconColor="danger"
               vertical

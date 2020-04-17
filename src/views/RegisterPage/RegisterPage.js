@@ -55,12 +55,27 @@ export default function LoginPage(props) {
               <Card className={classes[cardAnimaton]}>
                 <form className={classes.form}>
                   <CardHeader color="primary" className={classes.cardHeader}>
-                    <h4>Login</h4>
+                    <h4>Sign Up</h4>
                     <div className={classes.socialLine}>
                       
                     </div>
                   </CardHeader>
                   <CardBody>
+                    <CustomInput
+                      labelText="Full name"
+                      id="name"
+                      formControlProps={{
+                        fullWidth: true
+                      }}
+                      inputProps={{
+                        type: "text",
+                        endAdornment: (
+                          <InputAdornment position="end">
+                            <People className={classes.inputIconsColor} />
+                          </InputAdornment>
+                        )
+                      }}
+                    />
                     <CustomInput
                       labelText="Email address"
                       id="email"
@@ -77,8 +92,26 @@ export default function LoginPage(props) {
                       }}
                     />
                     <CustomInput
-                      labelText="Your password"
-                      id="password"
+                      labelText="Create a password"
+                      id="password1"
+                      formControlProps={{
+                        fullWidth: true
+                      }}
+                      inputProps={{
+                        type: "password",
+                        endAdornment: (
+                          <InputAdornment position="end">
+                            <Icon className={classes.inputIconsColor}>
+                              lock_outline
+                            </Icon>
+                          </InputAdornment>
+                        ),
+                        autoComplete: "off"
+                      }}
+                    />
+                    <CustomInput
+                      labelText="Confirm password"
+                      id="password2"
                       formControlProps={{
                         fullWidth: true
                       }}
@@ -97,7 +130,7 @@ export default function LoginPage(props) {
                   </CardBody>
                   <CardFooter className={classes.cardFooter}>
                     <Button simple color="primary" size="lg">
-                      Sign In
+                      Get started
                     </Button>
                   </CardFooter>
                 </form>
