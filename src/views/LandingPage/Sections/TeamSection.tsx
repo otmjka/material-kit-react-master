@@ -1,29 +1,36 @@
-import React from "react";
+import React from 'react';
 // nodejs library that concatenates classes
-import classNames from "classnames";
+import classNames from 'classnames';
 // @material-ui/core components
-import { makeStyles } from "@material-ui/core/styles";
+import { Theme, makeStyles } from '@material-ui/core/styles';
+import { BaseCSSProperties } from '@material-ui/core/styles/withStyles';
 
 // @material-ui/icons
 
 // core components
-import GridContainer from "components/Grid/GridContainer.js";
-import GridItem from "components/Grid/GridItem.js";
-import Button from "components/CustomButtons/Button.js";
-import Card from "components/Card/Card.js";
-import CardBody from "components/Card/CardBody.js";
-import CardFooter from "components/Card/CardFooter.js";
+import GridContainer from 'components/Grid/GridContainer';
+import GridItem from 'components/Grid/GridItem';
+import Button from 'components/CustomButtons/Button';
+import Card from 'components/Card/Card';
+import CardBody from 'components/Card/CardBody';
+import CardFooter from 'components/Card/CardFooter';
 
-import styles from "assets/jss/material-kit-react/views/landingPageSections/teamStyle.js";
+import styles from 'assets/jss/material-kit-react/views/landingPageSections/teamStyle.js';
 
-import team1 from "assets/img/faces/avatar.jpg";
-import team2 from "assets/img/faces/christian.jpg";
-import team3 from "assets/img/faces/kendall.jpg";
+import team1 from 'assets/img/faces/avatar.jpg';
+import team2 from 'assets/img/faces/christian.jpg';
+import team3 from 'assets/img/faces/kendall.jpg';
 
-const useStyles = makeStyles(styles);
+interface StyleProps {
+  [key: string]: BaseCSSProperties;
+}
+
+type PropsClasses = Record<keyof StyleProps, string>;
+
+const useStyles = makeStyles<Theme, StyleProps>(() => styles as any);
 
 export default function TeamSection() {
-  const classes = useStyles();
+  const classes: PropsClasses = useStyles({} as StyleProps);
   const imageClasses = classNames(
     classes.imgRaised,
     classes.imgRoundedCircle,
@@ -58,21 +65,21 @@ export default function TeamSection() {
                   color="transparent"
                   className={classes.margin5}
                 >
-                  <i className={classes.socials + " fab fa-twitter"} />
+                  <i className={classes.socials + ' fab fa-twitter'} />
                 </Button>
                 <Button
                   justIcon
                   color="transparent"
                   className={classes.margin5}
                 >
-                  <i className={classes.socials + " fab fa-instagram"} />
+                  <i className={classes.socials + ' fab fa-instagram'} />
                 </Button>
                 <Button
                   justIcon
                   color="transparent"
                   className={classes.margin5}
                 >
-                  <i className={classes.socials + " fab fa-facebook"} />
+                  <i className={classes.socials + ' fab fa-facebook'} />
                 </Button>
               </CardFooter>
             </Card>
@@ -101,14 +108,14 @@ export default function TeamSection() {
                   color="transparent"
                   className={classes.margin5}
                 >
-                  <i className={classes.socials + " fab fa-twitter"} />
+                  <i className={classes.socials + ' fab fa-twitter'} />
                 </Button>
                 <Button
                   justIcon
                   color="transparent"
                   className={classes.margin5}
                 >
-                  <i className={classes.socials + " fab fa-linkedin"} />
+                  <i className={classes.socials + ' fab fa-linkedin'} />
                 </Button>
               </CardFooter>
             </Card>
@@ -137,21 +144,21 @@ export default function TeamSection() {
                   color="transparent"
                   className={classes.margin5}
                 >
-                  <i className={classes.socials + " fab fa-twitter"} />
+                  <i className={classes.socials + ' fab fa-twitter'} />
                 </Button>
                 <Button
                   justIcon
                   color="transparent"
                   className={classes.margin5}
                 >
-                  <i className={classes.socials + " fab fa-instagram"} />
+                  <i className={classes.socials + ' fab fa-instagram'} />
                 </Button>
                 <Button
                   justIcon
                   color="transparent"
                   className={classes.margin5}
                 >
-                  <i className={classes.socials + " fab fa-facebook"} />
+                  <i className={classes.socials + ' fab fa-facebook'} />
                 </Button>
               </CardFooter>
             </Card>

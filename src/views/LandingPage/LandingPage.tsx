@@ -2,32 +2,39 @@ import React from 'react';
 // nodejs library that concatenates classes
 import classNames from 'classnames';
 // @material-ui/core components
-import { makeStyles } from '@material-ui/core/styles';
+import { Theme, makeStyles } from '@material-ui/core/styles';
+import { BaseCSSProperties } from '@material-ui/core/styles/withStyles';
 
 // @material-ui/icons
 
 // core components
-import Header from 'components/Header/Header.js';
-import Footer from 'components/Footer/Footer.js';
-import GridContainer from 'components/Grid/GridContainer.js';
-import GridItem from 'components/Grid/GridItem.js';
-import Button from 'components/CustomButtons/Button.js';
-import HeaderLinks from 'components/Header/HeaderLinks.js';
-import Parallax from 'components/Parallax/Parallax.js';
+import Header from 'components/Header/Header';
+import Footer from 'components/Footer/Footer';
+import GridContainer from 'components/Grid/GridContainer';
+import GridItem from 'components/Grid/GridItem';
+import Button from 'components/CustomButtons/Button';
+import HeaderLinks from 'components/Header/HeaderLinks';
+import Parallax from 'components/Parallax/Parallax';
 
-import styles from 'assets/jss/material-kit-react/views/landingPage.js';
+import styles from 'assets/jss/material-kit-react/views/landingPage';
 
 // Sections for this page
-import ProductSection from './Sections/ProductSection.js';
-import TeamSection from './Sections/TeamSection.js';
-import WorkSection from './Sections/WorkSection.js';
+import ProductSection from './Sections/ProductSection';
+import TeamSection from './Sections/TeamSection';
+import WorkSection from './Sections/WorkSection';
 
 const dashboardRoutes = [];
 
-const useStyles = makeStyles(styles);
+interface StyleProps {
+  [key: string]: BaseCSSProperties;
+}
+
+type PropsClasses = Record<keyof StyleProps, string>;
+
+const useStyles = makeStyles<Theme, StyleProps>(() => styles as any);
 
 export default function LandingPage(props) {
-  const classes = useStyles();
+  const classes: PropsClasses = useStyles({} as StyleProps);
   const { ...rest } = props;
   return (
     <div>
