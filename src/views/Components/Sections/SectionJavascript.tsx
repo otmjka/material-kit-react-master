@@ -54,8 +54,8 @@ type PropsClasses = Record<keyof StyleProps, string>;
 
 const useStyles = makeStyles<Theme, StyleProps>(() => styles as any);
 
-const Transition = React.forwardRef<unknown, TransitionProps>((props, ref) => (
-  <Slide direction="down" ref={ref} />
+const Transition = React.forwardRef<unknown, TransitionProps>((props: any, ref) => (
+  <Slide direction="down" ref={ref} {...props} />
 ));
 
 Transition.displayName = 'Transition';
