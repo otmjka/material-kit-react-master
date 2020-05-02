@@ -62,13 +62,10 @@ const RegularButton = React.forwardRef((props: RegularButtonProps, ref) => {
     ...rest
   } = props;
 
-  // const classes = makeComponentStyles();
   const classes: PropsClasses = makeComponentStyles({} as StyleProps);
   let additional: string = '';
-  // if (className) {
-  //   additional = classNames({[className as string]: className})
-  // }
-  const btnClasses = classNames({
+
+  const btnClasses = classNames(className, {
     [classes.button]: true,
     [classes[size || 'sm']]: size,
     [classes[color || 'primary']]: color,
@@ -81,9 +78,8 @@ const RegularButton = React.forwardRef((props: RegularButtonProps, ref) => {
     [classes.justIcon]: !!justIcon
   });
 
-  // {...rest} ref={ref} className={btnClasses}
   return (
-    <Button {...rest} className={btnClasses}>
+    <Button {...rest} ref={ref} className={btnClasses}>
       {children}
     </Button>
   );

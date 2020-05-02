@@ -45,7 +45,7 @@ interface StyleProps {
 
 type PropsClasses = Record<keyof StyleProps, string>;
 
-const useStyles = makeStyles<Theme, StyleProps>(() => styles as any);
+const useStyles = makeStyles<Theme, StyleProps>(styles as any);
 
 export default function HeaderLinks() {
   const classes: PropsClasses = useStyles({} as StyleProps);
