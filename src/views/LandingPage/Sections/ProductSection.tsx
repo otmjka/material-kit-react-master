@@ -3,11 +3,9 @@ import React from 'react';
 import { Theme, makeStyles } from '@material-ui/core/styles';
 import { BaseCSSProperties } from '@material-ui/core/styles/withStyles';
 
-
 // @material-ui/icons
 import Chat from '@material-ui/icons/Chat';
 import SpeedIcon from '@material-ui/icons/Speed';
-import VerifiedUser from '@material-ui/icons/VerifiedUser';
 import Fingerprint from '@material-ui/icons/Fingerprint';
 // core components
 import GridContainer from 'components/Grid/GridContainer';
@@ -17,13 +15,12 @@ import InfoArea from 'components/InfoArea/InfoArea';
 import styles from 'assets/jss/material-kit-react/views/landingPageSections/productStyle.js';
 
 interface StyleProps {
-  [key:string]: BaseCSSProperties;
+  [key: string]: BaseCSSProperties;
 }
 
 type PropsClasses = Record<keyof StyleProps, string>;
 
 const useStyles = makeStyles<Theme, StyleProps>(() => styles as any);
-
 
 export default function ProductSection() {
   const classes: PropsClasses = useStyles({} as StyleProps);

@@ -1,6 +1,4 @@
 import React from 'react';
-// nodejs library to set properties for components
-import PropTypes from 'prop-types';
 // nodejs library that concatenates classes
 import classNames from 'classnames';
 
@@ -61,8 +59,6 @@ const RegularButton = React.forwardRef((props: RegularButtonProps, ref: any) => 
   } = props;
 
   const classes: PropsClasses = makeComponentStyles({} as StyleProps);
-  let additional: string = '';
-
   const btnClasses = classNames(className, {
     [classes.button]: true,
     [classes[size || 'sm']]: size,

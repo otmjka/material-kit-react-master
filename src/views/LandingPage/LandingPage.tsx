@@ -12,7 +12,6 @@ import Header from 'components/Header/Header';
 import Footer from 'components/Footer/Footer';
 import GridContainer from 'components/Grid/GridContainer';
 import GridItem from 'components/Grid/GridItem';
-import Button from 'components/CustomButtons/Button';
 import HeaderLinks from 'components/Header/HeaderLinks';
 import Parallax from 'components/Parallax/Parallax';
 
@@ -20,7 +19,6 @@ import styles from 'assets/jss/material-kit-react/views/landingPage';
 
 // Sections for this page
 import ProductSection from './Sections/ProductSection';
-import TeamSection from './Sections/TeamSection';
 import WorkSection from './Sections/WorkSection';
 
 const dashboardRoutes: any[] = [];

@@ -1,8 +1,6 @@
 import React from 'react';
 // nodejs library that concatenates classes
 import classNames from 'classnames';
-// nodejs library to set properties for components
-import PropTypes from 'prop-types';
 // @material-ui/core components
 import { Theme, makeStyles } from '@material-ui/core/styles';
 import { BaseCSSProperties } from '@material-ui/core/styles/withStyles';
@@ -17,8 +15,6 @@ import Drawer from '@material-ui/core/Drawer';
 import Menu from '@material-ui/icons/Menu';
 // core components
 import styles from 'assets/jss/material-kit-react/components/headerStyle.js';
-
-import LogoImg from 'assets/img/logo/logo3.png';
 
 type PropsClasses = Record<keyof StyleProps, string>;
 
