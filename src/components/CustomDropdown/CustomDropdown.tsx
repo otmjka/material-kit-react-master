@@ -198,10 +198,6 @@ CustomDropdown.defaultProps = {
   hoverColor: 'primary'
 };
 
-// type DropdownListItem = {
-//   divider?: boolean;
-// } | string;
-
 type CustomDropdownProps = {
   hoverColor:
     | 'black'
