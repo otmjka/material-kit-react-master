@@ -72,7 +72,7 @@ export default function Parallax(props: ParallaxProps) {
 type ParallaxProps = {
   className?: string;
   filter?: boolean;
-  children: React.ReactNode;
+  children?: React.ReactNode;
   style?: BaseCSSProperties;
   image: string;
   small?: boolean;

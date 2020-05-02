@@ -20,26 +20,6 @@ import styles from 'assets/jss/material-kit-react/components/headerStyle.js';
 
 import LogoImg from 'assets/img/logo/logo3.png';
 
-interface StyleProps {
-  appBar: BaseCSSProperties;
-  absolute: BaseCSSProperties;
-  fixed: BaseCSSProperties;
-  container: BaseCSSProperties;
-  flex: BaseCSSProperties;
-  title: BaseCSSProperties;
-  appResponsive: BaseCSSProperties;
-  primary: BaseCSSProperties;
-  info: BaseCSSProperties;
-  success: BaseCSSProperties;
-  warning: BaseCSSProperties;
-  danger: BaseCSSProperties;
-  rose: BaseCSSProperties;
-  transparent: BaseCSSProperties;
-  dark: BaseCSSProperties;
-  white: BaseCSSProperties;
-  drawerPaper: BaseCSSProperties;
-}
-
 type PropsClasses = Record<keyof StyleProps, string>;
 
 const useStyles = makeStyles<Theme, StyleProps>(() => styles as any);
@@ -173,6 +153,7 @@ type HeaderProps = {
   brand: string;
   fixed?: boolean;
   absolute?: boolean;
+  routes?: any[];
   // this will cause the sidebar to change the color from
   // props.color (see above) to changeColorOnScroll.color
   // when the window.pageYOffset is heigher or equal to
@@ -181,3 +162,23 @@ type HeaderProps = {
   // props.color (see above)
   changeColorOnScroll?: ChangeColorOnScroll
 };
+
+interface StyleProps {
+  appBar: BaseCSSProperties;
+  absolute: BaseCSSProperties;
+  fixed: BaseCSSProperties;
+  container: BaseCSSProperties;
+  flex: BaseCSSProperties;
+  title: BaseCSSProperties;
+  appResponsive: BaseCSSProperties;
+  primary: BaseCSSProperties;
+  info: BaseCSSProperties;
+  success: BaseCSSProperties;
+  warning: BaseCSSProperties;
+  danger: BaseCSSProperties;
+  rose: BaseCSSProperties;
+  transparent: BaseCSSProperties;
+  dark: BaseCSSProperties;
+  white: BaseCSSProperties;
+  drawerPaper: BaseCSSProperties;
+}

@@ -33,7 +33,7 @@ type PropsClasses = Record<keyof StyleProps, string>;
 
 const useStyles = makeStyles<Theme, StyleProps>(() => styles as any);
 
-export default function LoginPage(props) {
+export default function LoginPage(props: LoginPageProps) {
   const classes: PropsClasses = useStyles({} as StyleProps);
   const [cardAnimaton, setCardAnimation] = React.useState('cardHidden');
   setTimeout(function() {
@@ -116,3 +116,5 @@ export default function LoginPage(props) {
     </div>
   );
 }
+
+type LoginPageProps = { [key: string]: any };

@@ -23,7 +23,7 @@ import ProductSection from './Sections/ProductSection';
 import TeamSection from './Sections/TeamSection';
 import WorkSection from './Sections/WorkSection';
 
-const dashboardRoutes = [];
+const dashboardRoutes: any[] = [];
 
 interface StyleProps {
   [key: string]: BaseCSSProperties;
@@ -33,7 +33,7 @@ type PropsClasses = Record<keyof StyleProps, string>;
 
 const useStyles = makeStyles<Theme, StyleProps>(() => styles as any);
 
-export default function LandingPage(props) {
+export default function LandingPage(props: LandingPageProps) {
   const classes: PropsClasses = useStyles({} as StyleProps);
   const { ...rest } = props;
   return (
@@ -74,3 +74,5 @@ export default function LandingPage(props) {
     </div>
   );
 }
+
+type LandingPageProps = {[key: string]: any}

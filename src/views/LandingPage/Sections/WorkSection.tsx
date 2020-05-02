@@ -27,7 +27,7 @@ export default function WorkSection() {
   return (
     <div className={classes.section}>
       <GridContainer justify="center">
-        <GridItem cs={12} sm={12} md={8}>
+        <GridItem xs={12} sm={12} md={8}>
           <h2 className={classes.title}>Contact us</h2>
           <h4 className={classes.description}>
             We will gladly help you get started. You can get in touch with us in

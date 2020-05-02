@@ -1,23 +1,25 @@
 import React from 'react';
 // @material-ui/core components
-import { makeStyles } from '@material-ui/core/styles';
+import { Theme, makeStyles } from '@material-ui/core/styles';
+import { BaseCSSProperties } from '@material-ui/core/styles/withStyles';
+
 import InputAdornment from '@material-ui/core/InputAdornment';
 import Icon from '@material-ui/core/Icon';
 // @material-ui/icons
 import Email from '@material-ui/icons/Email';
 import People from '@material-ui/icons/People';
 // core components
-import Header from 'components/Header/Header.js';
-import HeaderLinks from 'components/Header/HeaderLinks.js';
-import Footer from 'components/Footer/Footer.js';
-import GridContainer from 'components/Grid/GridContainer.js';
-import GridItem from 'components/Grid/GridItem.js';
-import Button from 'components/CustomButtons/Button.js';
-import Card from 'components/Card/Card.js';
-import CardBody from 'components/Card/CardBody.js';
-import CardHeader from 'components/Card/CardHeader.js';
-import CardFooter from 'components/Card/CardFooter.js';
-import CustomInput from 'components/CustomInput/CustomInput.js';
+import Header from 'components/Header/Header';
+import HeaderLinks from 'components/Header/HeaderLinks';
+import Footer from 'components/Footer/Footer';
+import GridContainer from 'components/Grid/GridContainer';
+import GridItem from 'components/Grid/GridItem';
+import Button from 'components/CustomButtons/Button';
+import Card from 'components/Card/Card';
+import CardBody from 'components/Card/CardBody';
+import CardHeader from 'components/Card/CardHeader';
+import CardFooter from 'components/Card/CardFooter';
+import CustomInput from 'components/CustomInput/CustomInput';
 
 import styles from 'assets/jss/material-kit-react/views/loginPage.js';
 
@@ -31,7 +33,7 @@ type PropsClasses = Record<keyof StyleProps, string>;
 
 const useStyles = makeStyles<Theme, StyleProps>(() => styles as any);
 
-export default function LoginPage(props) {
+export default function LoginPage(props: LoginPageProps) {
   const classes: PropsClasses = useStyles({} as StyleProps);
   const [cardAnimaton, setCardAnimation] = React.useState('cardHidden');
   setTimeout(function() {
@@ -147,3 +149,5 @@ export default function LoginPage(props) {
     </div>
   );
 }
+
+type LoginPageProps = {[key: string]: any}

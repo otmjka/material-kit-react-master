@@ -42,7 +42,7 @@ type PropsClasses = Record<keyof StyleProps, string>;
 
 const useStyles = makeStyles<Theme, StyleProps>(() => styles as any);
 
-export default function ProfilePage(props) {
+export default function ProfilePage(props: ProfilePageProps) {
   const classes: PropsClasses = useStyles({} as StyleProps);
 
   const { ...rest } = props;
@@ -222,3 +222,5 @@ export default function ProfilePage(props) {
     </div>
   );
 }
+
+type ProfilePageProps = {[key: string]: any}
