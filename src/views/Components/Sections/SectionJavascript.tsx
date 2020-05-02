@@ -1,29 +1,30 @@
-import React from "react";
+import React from 'react';
 // react plugin for creating date-time-picker
-import Datetime from "react-datetime";
+import Datetime from 'react-datetime';
 // @material-ui/core components
 import { Theme, makeStyles } from '@material-ui/core/styles';
 import { BaseCSSProperties } from '@material-ui/core/styles/withStyles';
 
-import Slide from "@material-ui/core/Slide";
-import IconButton from "@material-ui/core/IconButton";
-import Dialog from "@material-ui/core/Dialog";
-import DialogTitle from "@material-ui/core/DialogTitle";
-import DialogContent from "@material-ui/core/DialogContent";
-import DialogActions from "@material-ui/core/DialogActions";
-import InputLabel from "@material-ui/core/InputLabel";
-import FormControl from "@material-ui/core/FormControl";
-import Tooltip from "@material-ui/core/Tooltip";
-import Popover from "@material-ui/core/Popover";
+import Slide from '@material-ui/core/Slide';
+import IconButton from '@material-ui/core/IconButton';
+import Dialog from '@material-ui/core/Dialog';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogActions from '@material-ui/core/DialogActions';
+import InputLabel from '@material-ui/core/InputLabel';
+import FormControl from '@material-ui/core/FormControl';
+import Tooltip from '@material-ui/core/Tooltip';
+import { TransitionProps } from '@material-ui/core/transitions';
+import Popover from '@material-ui/core/Popover';
 // @material-ui/icons
-import LibraryBooks from "@material-ui/icons/LibraryBooks";
-import Close from "@material-ui/icons/Close";
+import LibraryBooks from '@material-ui/icons/LibraryBooks';
+import Close from '@material-ui/icons/Close';
 // core components
-import GridContainer from "components/Grid/GridContainer";
-import GridItem from "components/Grid/GridItem";
-import Button from "components/CustomButtons/Button";
+import GridContainer from 'components/Grid/GridContainer';
+import GridItem from 'components/Grid/GridItem';
+import Button from 'components/CustomButtons/Button';
 
-import styles from "assets/jss/material-kit-react/views/componentsSections/javascriptStyles.js";
+import styles from 'assets/jss/material-kit-react/views/componentsSections/javascriptStyles.js';
 
 interface StyleProps {
   center: BaseCSSProperties;
@@ -53,11 +54,11 @@ type PropsClasses = Record<keyof StyleProps, string>;
 
 const useStyles = makeStyles<Theme, StyleProps>(() => styles as any);
 
-// const Transition = React.forwardRef(function Transition(props, ref) {
-//   return <Slide direction="down" ref={ref} {...props} />; // @ts-ignore
-// });
-//
-// Transition.displayName = "Transition";
+const Transition = React.forwardRef<unknown, TransitionProps>((props, ref) => (
+  <Slide direction="down" ref={ref} />
+));
+
+Transition.displayName = 'Transition';
 
 export default function SectionJavascript() {
   const classes: PropsClasses = useStyles({} as StyleProps);
@@ -93,6 +94,7 @@ export default function SectionJavascript() {
                     paper: classes.modal
                   }}
                   open={classicModal}
+                  TransitionComponent={Transition}
                   keepMounted
                   onClose={() => setClassicModal(false)}
                   aria-labelledby="classic-modal-slide-title"
@@ -159,7 +161,7 @@ export default function SectionJavascript() {
                   <br />
                   <FormControl fullWidth>
                     <Datetime
-                      inputProps={{ placeholder: "Datetime Picker Here" }}
+                      inputProps={{ placeholder: 'Datetime Picker Here' }}
                     />
                   </FormControl>
                 </GridItem>
@@ -181,12 +183,12 @@ export default function SectionJavascript() {
               anchorEl={anchorElLeft}
               onClose={() => setAnchorElLeft(null)}
               anchorOrigin={{
-                vertical: "center",
-                horizontal: "left"
+                vertical: 'center',
+                horizontal: 'left'
               }}
               transformOrigin={{
-                vertical: "center",
-                horizontal: "right"
+                vertical: 'center',
+                horizontal: 'right'
               }}
             >
               <h3 className={classes.popoverHeader}>Popover on left</h3>
@@ -206,12 +208,12 @@ export default function SectionJavascript() {
               anchorEl={anchorElTop}
               onClose={() => setAnchorElTop(null)}
               anchorOrigin={{
-                vertical: "top",
-                horizontal: "center"
+                vertical: 'top',
+                horizontal: 'center'
               }}
               transformOrigin={{
-                vertical: "bottom",
-                horizontal: "center"
+                vertical: 'bottom',
+                horizontal: 'center'
               }}
             >
               <h3 className={classes.popoverHeader}>Popover on top</h3>
@@ -230,12 +232,12 @@ export default function SectionJavascript() {
               anchorEl={anchorElBottom}
               onClose={() => setAnchorElBottom(null)}
               anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "center"
+                vertical: 'bottom',
+                horizontal: 'center'
               }}
               transformOrigin={{
-                vertical: "top",
-                horizontal: "center"
+                vertical: 'top',
+                horizontal: 'center'
               }}
             >
               <h3 className={classes.popoverHeader}>Popover on bottom</h3>
@@ -254,12 +256,12 @@ export default function SectionJavascript() {
               anchorEl={anchorElRight}
               onClose={() => setAnchorElRight(null)}
               anchorOrigin={{
-                vertical: "center",
-                horizontal: "right"
+                vertical: 'center',
+                horizontal: 'right'
               }}
               transformOrigin={{
-                vertical: "center",
-                horizontal: "left"
+                vertical: 'center',
+                horizontal: 'left'
               }}
             >
               <h3 className={classes.popoverHeader}>Popover on right</h3>
