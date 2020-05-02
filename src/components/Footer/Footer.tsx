@@ -28,9 +28,6 @@ type PropsClasses = Record<keyof StyleProps, string>;
 
 const useStyles = makeStyles<Theme, StyleProps>(() => styles as any);
 
-
-
-
 export default function Footer(props: FooterProps) {
   const classes: PropsClasses = useStyles({} as StyleProps);
   const { whiteFont } = props;
@@ -83,5 +80,5 @@ export default function Footer(props: FooterProps) {
 }
 
 type FooterProps = {
-  whiteFont: boolean
+  whiteFont?: boolean;
 };
