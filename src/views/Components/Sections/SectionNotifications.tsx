@@ -1,16 +1,16 @@
-import React from "react";
+import React from 'react';
 // @material-ui/core components
 import { Theme, makeStyles } from '@material-ui/core/styles';
 import { BaseCSSProperties } from '@material-ui/core/styles/withStyles';
 
 // @material-ui/icons
-import Check from "@material-ui/icons/Check";
-import Warning from "@material-ui/icons/Warning";
+import Check from '@material-ui/icons/Check';
+import Warning from '@material-ui/icons/Warning';
 // core components
-import SnackbarContent from "components/Snackbar/SnackbarContent.js";
-import Clearfix from "components/Clearfix/Clearfix.js";
+import SnackbarContent from 'components/Snackbar/SnackbarContent';
+import Clearfix from 'components/Clearfix/Clearfix';
 
-import styles from "assets/jss/material-kit-react/views/componentsSections/notificationsStyles.js";
+import styles from 'assets/jss/material-kit-react/views/componentsSections/notificationsStyles.js';
 
 interface StyleProps {
   section: BaseCSSProperties;

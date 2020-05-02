@@ -1,20 +1,19 @@
-import React from "react";
+import React from 'react';
 // @material-ui/core components
 import { Theme, makeStyles } from '@material-ui/core/styles';
 import { BaseCSSProperties } from '@material-ui/core/styles/withStyles';
 
-
 // @material-ui/icons
-import Dashboard from "@material-ui/icons/Dashboard";
-import Schedule from "@material-ui/icons/Schedule";
-import List from "@material-ui/icons/List";
+import Dashboard from '@material-ui/icons/Dashboard';
+import Schedule from '@material-ui/icons/Schedule';
+import List from '@material-ui/icons/List';
 
 // core components
-import GridContainer from "components/Grid/GridContainer.js";
-import GridItem from "components/Grid/GridItem.js";
-import NavPills from "components/NavPills/NavPills.js";
+import GridContainer from 'components/Grid/GridContainer';
+import GridItem from 'components/Grid/GridItem';
+import NavPills from 'components/NavPills/NavPills';
 
-import styles from "assets/jss/material-kit-react/views/componentsSections/pillsStyle.js";
+import styles from 'assets/jss/material-kit-react/views/componentsSections/pillsStyle.js';
 
 interface StyleProps {
   section: BaseCSSProperties;
@@ -46,7 +45,7 @@ export default function SectionPills() {
                 color="primary"
                 tabs={[
                   {
-                    tabButton: "Dashboard",
+                    tabButton: 'Dashboard',
                     tabIcon: Dashboard,
                     tabContent: (
                       <span>
@@ -75,7 +74,7 @@ export default function SectionPills() {
                     )
                   },
                   {
-                    tabButton: "Schedule",
+                    tabButton: 'Schedule',
                     tabIcon: Schedule,
                     tabContent: (
                       <span>
@@ -97,7 +96,7 @@ export default function SectionPills() {
                     )
                   },
                   {
-                    tabButton: "Tasks",
+                    tabButton: 'Tasks',
                     tabIcon: List,
                     tabContent: (
                       <span>
@@ -137,7 +136,7 @@ export default function SectionPills() {
                 }}
                 tabs={[
                   {
-                    tabButton: "Dashboard",
+                    tabButton: 'Dashboard',
                     tabIcon: Dashboard,
                     tabContent: (
                       <span>
@@ -166,7 +165,7 @@ export default function SectionPills() {
                     )
                   },
                   {
-                    tabButton: "Schedule",
+                    tabButton: 'Schedule',
                     tabIcon: Schedule,
                     tabContent: (
                       <span>

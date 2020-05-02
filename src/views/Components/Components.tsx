@@ -79,7 +79,7 @@ export default function Components() {
 
       <div className={classNames(classes.main, classes.mainRaised)}>
         <SectionBasics />
-        {/*<SectionNavbars />
+        <SectionNavbars />
             <SectionTabs />
             <SectionPills />
             <SectionNotifications />
@@ -96,7 +96,7 @@ export default function Components() {
               </Link>
             </GridItem>
             <SectionExamples />
-            <SectionDownload />*/}
+            <SectionDownload />
       </div>
       {/*<Footer />*/}
     </div>

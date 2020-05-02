@@ -1,32 +1,38 @@
-import React from "react";
+import React from 'react';
 // nodejs library that concatenates classes
-import classNames from "classnames";
-// nodejs library to set properties for components
-import PropTypes from "prop-types";
-import SwipeableViews from "react-swipeable-views";
+import classNames from 'classnames';
+import SwipeableViews from 'react-swipeable-views';
 
 // @material-ui/core components
-import { makeStyles } from "@material-ui/core/styles";
-import Tabs from "@material-ui/core/Tabs";
-import Tab from "@material-ui/core/Tab";
+import { Theme, makeStyles } from '@material-ui/core/styles';
+import { BaseCSSProperties } from '@material-ui/core/styles/withStyles';
+
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
 
 // core components
-import GridContainer from "components/Grid/GridContainer.js";
-import GridItem from "components/Grid/GridItem.js";
+import GridContainer from 'components/Grid/GridContainer';
+import GridItem from 'components/Grid/GridItem';
 
-import styles from "assets/jss/material-kit-react/components/navPillsStyle.js";
+import styles from 'assets/jss/material-kit-react/components/navPillsStyle.js';
 
-const useStyles = makeStyles(styles);
+interface StyleProps {
+  [key: string]: BaseCSSProperties;
+}
 
-export default function NavPills(props) {
+type PropsClasses = Record<keyof StyleProps, string>;
+
+const useStyles = makeStyles<Theme, StyleProps>(() => styles as any);
+
+export default function NavPills(props: NavPillsProps) {
+  const classes: PropsClasses = useStyles({} as StyleProps);
   const [active, setActive] = React.useState(props.active);
-  const handleChange = (event, active) => {
+  const handleChange = (event: any, active: number) => {
     setActive(active);
   };
-  const handleChangeIndex = index => {
+  const handleChangeIndex = (index: number) => {
     setActive(index);
   };
-  const classes = useStyles();
   const { tabs, direction, color, horizontal, alignCenter } = props;
   const flexContainerClasses = classNames({
     [classes.flexContainer]: true,
@@ -44,10 +50,11 @@ export default function NavPills(props) {
       onChange={handleChange}
       centered={alignCenter}
     >
-      {tabs.map((prop, key) => {
-        var icon = {};
+      {tabs.map((prop: { tabIcon?: any; tabButton?: any }, key) => {
+        var icon: { icon?: any } = {};
         if (prop.tabIcon !== undefined) {
-          icon["icon"] = <prop.tabIcon className={classes.tabIcon} />;
+          // const Comp: React.ReactNode = (<prop.tabIcon/> as React.ReactNode)
+          icon['icon'] = <prop.tabIcon className={classes.tabIcon} />;
         }
         const pillsClasses = classNames({
           [classes.pills]: true,
@@ -72,7 +79,7 @@ export default function NavPills(props) {
   const tabContent = (
     <div className={classes.contentWrapper}>
       <SwipeableViews
-        axis={direction === "rtl" ? "x-reverse" : "x"}
+        axis={direction === 'rtl' ? 'x-reverse' : 'x'}
         index={active}
         onChangeIndex={handleChangeIndex}
       >
@@ -101,31 +108,26 @@ export default function NavPills(props) {
 
 NavPills.defaultProps = {
   active: 0,
-  color: "primary"
+  color: 'primary'
 };
 
-NavPills.propTypes = {
+type Tab = {
+  tabButton: string;
+  tabIcon: object;
+  tabContent: React.ReactNode;
+};
+
+type Horizontal = {
+  tabsGrid: object;
+  contentGrid: object;
+};
+
+type NavPillsProps = {
   // index of the default active pill
-  active: PropTypes.number,
-  tabs: PropTypes.arrayOf(
-    PropTypes.shape({
-      tabButton: PropTypes.string,
-      tabIcon: PropTypes.object,
-      tabContent: PropTypes.node
-    })
-  ).isRequired,
-  color: PropTypes.oneOf([
-    "primary",
-    "warning",
-    "danger",
-    "success",
-    "info",
-    "rose"
-  ]),
-  direction: PropTypes.string,
-  horizontal: PropTypes.shape({
-    tabsGrid: PropTypes.object,
-    contentGrid: PropTypes.object
-  }),
-  alignCenter: PropTypes.bool
+  active: number;
+  tabs: Tab[];
+  color?: 'primary' | 'warning' | 'danger' | 'success' | 'info' | 'rose';
+  direction?: string;
+  horizontal?: Horizontal;
+  alignCenter?: boolean;
 };

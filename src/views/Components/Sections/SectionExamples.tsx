@@ -8,9 +8,9 @@ import { BaseCSSProperties } from '@material-ui/core/styles/withStyles';
 // @material-ui/icons
 
 // core components
-import GridContainer from 'components/Grid/GridContainer.js';
-import GridItem from 'components/Grid/GridItem.js';
-import Button from 'components/CustomButtons/Button.js';
+import GridContainer from 'components/Grid/GridContainer';
+import GridItem from 'components/Grid/GridItem';
+import Button from 'components/CustomButtons/Button';
 
 import landing from 'assets/img/landing.jpg';
 import profile from 'assets/img/profile.jpg';
