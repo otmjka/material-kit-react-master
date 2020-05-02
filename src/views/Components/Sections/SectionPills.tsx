@@ -1,6 +1,8 @@
 import React from "react";
 // @material-ui/core components
-import { makeStyles } from "@material-ui/core/styles";
+import { Theme, makeStyles } from '@material-ui/core/styles';
+import { BaseCSSProperties } from '@material-ui/core/styles/withStyles';
+
 
 // @material-ui/icons
 import Dashboard from "@material-ui/icons/Dashboard";
@@ -14,10 +16,18 @@ import NavPills from "components/NavPills/NavPills.js";
 
 import styles from "assets/jss/material-kit-react/views/componentsSections/pillsStyle.js";
 
-const useStyles = makeStyles(styles);
+interface StyleProps {
+  section: BaseCSSProperties;
+  container: BaseCSSProperties;
+  title: BaseCSSProperties;
+}
+
+type PropsClasses = Record<keyof StyleProps, string>;
+
+const useStyles = makeStyles<Theme, StyleProps>(() => styles as any);
 
 export default function SectionPills() {
-  const classes = useStyles();
+  const classes: PropsClasses = useStyles({} as StyleProps);
   return (
     <div className={classes.section}>
       <div className={classes.container}>

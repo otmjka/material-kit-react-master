@@ -1,32 +1,63 @@
-import React from "react";
+import React from 'react';
 // @material-ui/core components
-import { makeStyles } from "@material-ui/core/styles";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import Icon from "@material-ui/core/Icon";
+import { Theme, makeStyles } from '@material-ui/core/styles';
+import { BaseCSSProperties } from '@material-ui/core/styles/withStyles';
+
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import Icon from '@material-ui/core/Icon';
 // @material-ui/icons
-import Search from "@material-ui/icons/Search";
-import Email from "@material-ui/icons/Email";
-import Face from "@material-ui/icons/Face";
-import AccountCircle from "@material-ui/icons/AccountCircle";
-import Explore from "@material-ui/icons/Explore";
+import Search from '@material-ui/icons/Search';
+import Email from '@material-ui/icons/Email';
+import Face from '@material-ui/icons/Face';
+import AccountCircle from '@material-ui/icons/AccountCircle';
+import Explore from '@material-ui/icons/Explore';
 // core components
-import GridContainer from "components/Grid/GridContainer.js";
-import GridItem from "components/Grid/GridItem.js";
-import Header from "components/Header/Header.js";
-import CustomInput from "components/CustomInput/CustomInput.js";
-import CustomDropdown from "components/CustomDropdown/CustomDropdown.js";
-import Button from "components/CustomButtons/Button.js";
+import GridContainer from 'components/Grid/GridContainer';
+import GridItem from 'components/Grid/GridItem';
+import Header from 'components/Header/Header';
+import CustomInput from 'components/CustomInput/CustomInput';
+import CustomDropdown from 'components/CustomDropdown/CustomDropdown.js';
+import Button from 'components/CustomButtons/Button';
 
-import image from "assets/img/bg.jpg";
-import profileImage from "assets/img/faces/avatar.jpg";
+import image from 'assets/img/bg.jpg';
+import profileImage from 'assets/img/faces/avatar.jpg';
 
-import styles from "assets/jss/material-kit-react/views/componentsSections/navbarsStyle.js";
+import styles from 'assets/jss/material-kit-react/views/componentsSections/navbarsStyle.js';
 
-const useStyles = makeStyles(styles);
+interface StyleProps {
+  section: BaseCSSProperties;
+  container: BaseCSSProperties;
+  title: BaseCSSProperties;
+  navbar: BaseCSSProperties;
+  navigation: BaseCSSProperties;
+  formControl: BaseCSSProperties;
+  inputRootCustomClasses: BaseCSSProperties;
+  searchIcon: BaseCSSProperties;
+  list: BaseCSSProperties;
+  listItem: BaseCSSProperties;
+  listItemText: BaseCSSProperties;
+  navLink: BaseCSSProperties;
+  notificationNavLink: BaseCSSProperties;
+  registerNavLink: BaseCSSProperties;
+  navLinkActive: BaseCSSProperties;
+  icons: BaseCSSProperties;
+  socialIcons: BaseCSSProperties;
+  dropdownLink: BaseCSSProperties;
+  tooltip: BaseCSSProperties;
+  marginRight5: BaseCSSProperties;
+  img: BaseCSSProperties;
+  imageDropdownButton: BaseCSSProperties;
+  searchInput: BaseCSSProperties;
+  socialIconsButton: BaseCSSProperties;
+}
+
+type PropsClasses = Record<keyof StyleProps, string>;
+
+const useStyles = makeStyles<Theme, StyleProps>(() => styles as any);
 
 export default function SectionNavbars() {
-  const classes = useStyles();
+  const classes: PropsClasses = useStyles({} as StyleProps);
   return (
     <div className={classes.section}>
       <div className={classes.container}>
@@ -66,16 +97,16 @@ export default function SectionNavbars() {
                       dropdownHeader="Dropdown Header"
                       buttonProps={{
                         className: classes.navLink,
-                        color: "transparent"
+                        color: 'transparent'
                       }}
                       dropdownList={[
-                        "Action",
-                        "Another action",
-                        "Something else here",
+                        'Action',
+                        'Another action',
+                        'Something else here',
                         { divider: true },
-                        "Separated link",
+                        'Separated link',
                         { divider: true },
-                        "One more separated link"
+                        'One more separated link'
                       ]}
                     />
                   </ListItem>
@@ -110,16 +141,16 @@ export default function SectionNavbars() {
                       buttonIcon="settings"
                       buttonProps={{
                         className: classes.navLink,
-                        color: "transparent"
+                        color: 'transparent'
                       }}
                       dropdownList={[
-                        "Action",
-                        "Another action",
-                        "Something else here",
+                        'Action',
+                        'Another action',
+                        'Something else here',
                         { divider: true },
-                        "Separated link",
+                        'Separated link',
                         { divider: true },
-                        "One more separated link"
+                        'One more separated link'
                       ]}
                     />
                   </ListItem>
@@ -135,7 +166,7 @@ export default function SectionNavbars() {
       <div id="navbar" className={classes.navbar}>
         <div
           className={classes.navigation}
-          style={{ backgroundImage: "url(" + image + ")" }}
+          style={{ backgroundImage: 'url(' + image + ')' }}
         >
           <Header
             brand="Brand"
@@ -173,9 +204,9 @@ export default function SectionNavbars() {
                     className: classes.formControl
                   }}
                   inputProps={{
-                    placeholder: "Search",
+                    placeholder: 'Search',
                     inputProps: {
-                      "aria-label": "Search",
+                      'aria-label': 'Search',
                       className: classes.searchInput
                     }
                   }}
@@ -194,7 +225,7 @@ export default function SectionNavbars() {
                 <ListItem className={classes.listItem}>
                   <Button
                     href="#pablo"
-                    className={classes.navLink + " " + classes.navLinkActive}
+                    className={classes.navLink + ' ' + classes.navLinkActive}
                     onClick={e => e.preventDefault()}
                     color="transparent"
                   >
@@ -232,7 +263,7 @@ export default function SectionNavbars() {
                 <ListItem className={classes.listItem}>
                   <Button
                     href="#pablo"
-                    className={classes.navLink + " " + classes.navLinkActive}
+                    className={classes.navLink + ' ' + classes.navLinkActive}
                     onClick={e => e.preventDefault()}
                     color="transparent"
                   >
@@ -314,13 +345,13 @@ export default function SectionNavbars() {
                     }
                     buttonProps={{
                       className:
-                        classes.navLink + " " + classes.imageDropdownButton,
-                      color: "transparent"
+                        classes.navLink + ' ' + classes.imageDropdownButton,
+                      color: 'transparent'
                     }}
                     dropdownList={[
-                      "Me",
-                      "Settings and other stuff",
-                      "Sign out"
+                      'Me',
+                      'Settings and other stuff',
+                      'Sign out'
                     ]}
                   />
                 </ListItem>
@@ -374,17 +405,17 @@ export default function SectionNavbars() {
                   <Button
                     color="transparent"
                     className={
-                      classes.navLink + " " + classes.socialIconsButton
+                      classes.navLink + ' ' + classes.socialIconsButton
                     }
                   >
                     <i
                       className={
                         classes.socialIcons +
-                        " " +
+                        ' ' +
                         classes.marginRight5 +
-                        " fab fa-twitter"
+                        ' fab fa-twitter'
                       }
-                    />{" "}
+                    />{' '}
                     Twitter
                   </Button>
                 </ListItem>
@@ -392,17 +423,17 @@ export default function SectionNavbars() {
                   <Button
                     color="transparent"
                     className={
-                      classes.navLink + " " + classes.socialIconsButton
+                      classes.navLink + ' ' + classes.socialIconsButton
                     }
                   >
                     <i
                       className={
                         classes.socialIcons +
-                        " " +
+                        ' ' +
                         classes.marginRight5 +
-                        " fab fa-facebook"
+                        ' fab fa-facebook'
                       }
-                    />{" "}
+                    />{' '}
                     Facebook
                   </Button>
                 </ListItem>
@@ -410,17 +441,17 @@ export default function SectionNavbars() {
                   <Button
                     color="transparent"
                     className={
-                      classes.navLink + " " + classes.socialIconsButton
+                      classes.navLink + ' ' + classes.socialIconsButton
                     }
                   >
                     <i
                       className={
                         classes.socialIcons +
-                        " " +
+                        ' ' +
                         classes.marginRight5 +
-                        " fab fa-instagram"
+                        ' fab fa-instagram'
                       }
-                    />{" "}
+                    />{' '}
                     Instagram
                   </Button>
                 </ListItem>

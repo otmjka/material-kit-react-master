@@ -1,24 +1,43 @@
-import React from "react";
+import React from 'react';
 // react components for routing our app without refresh
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 // @material-ui/core components
-import { makeStyles } from "@material-ui/core/styles";
+import { Theme, makeStyles } from '@material-ui/core/styles';
+import { BaseCSSProperties } from '@material-ui/core/styles/withStyles';
+
 // @material-ui/icons
 
 // core components
-import GridContainer from "components/Grid/GridContainer.js";
-import GridItem from "components/Grid/GridItem.js";
-import Button from "components/CustomButtons/Button.js";
+import GridContainer from 'components/Grid/GridContainer.js';
+import GridItem from 'components/Grid/GridItem.js';
+import Button from 'components/CustomButtons/Button.js';
 
-import landing from "assets/img/landing.jpg";
-import profile from "assets/img/profile.jpg";
+import landing from 'assets/img/landing.jpg';
+import profile from 'assets/img/profile.jpg';
 
-import styles from "assets/jss/material-kit-react/views/componentsSections/exampleStyle.js";
+import styles from 'assets/jss/material-kit-react/views/componentsSections/exampleStyle.js';
 
-const useStyles = makeStyles(styles);
+interface StyleProps {
+  section: BaseCSSProperties;
+  container: BaseCSSProperties;
+  link: BaseCSSProperties;
+  imgFluid: BaseCSSProperties;
+  imgRounded: BaseCSSProperties;
+  imgRoundedCircle: BaseCSSProperties;
+  imgRaised: BaseCSSProperties;
+  imgGallery: BaseCSSProperties;
+  imgCardTop: BaseCSSProperties;
+  imgCardBottom: BaseCSSProperties;
+  imgCard: BaseCSSProperties;
+  imgCardOverlay: BaseCSSProperties;
+}
+
+type PropsClasses = Record<keyof StyleProps, string>;
+
+const useStyles = makeStyles<Theme, StyleProps>(() => styles as any);
 
 export default function SectionExamples() {
-  const classes = useStyles();
+  const classes: PropsClasses = useStyles({} as StyleProps);
   return (
     <div className={classes.section}>
       <div className={classes.container}>
@@ -30,9 +49,9 @@ export default function SectionExamples() {
                 alt="..."
                 className={
                   classes.imgRaised +
-                  " " +
+                  ' ' +
                   classes.imgRounded +
-                  " " +
+                  ' ' +
                   classes.imgFluid
                 }
               />
@@ -48,9 +67,9 @@ export default function SectionExamples() {
                 alt="..."
                 className={
                   classes.imgRaised +
-                  " " +
+                  ' ' +
                   classes.imgRounded +
-                  " " +
+                  ' ' +
                   classes.imgFluid
                 }
               />

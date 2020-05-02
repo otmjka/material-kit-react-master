@@ -1,6 +1,8 @@
 import React from "react";
 // @material-ui/core components
-import { makeStyles } from "@material-ui/core/styles";
+import { Theme, makeStyles } from '@material-ui/core/styles';
+import { BaseCSSProperties } from '@material-ui/core/styles/withStyles';
+
 // @material-ui/icons
 import Check from "@material-ui/icons/Check";
 import Warning from "@material-ui/icons/Warning";
@@ -10,10 +12,18 @@ import Clearfix from "components/Clearfix/Clearfix.js";
 
 import styles from "assets/jss/material-kit-react/views/componentsSections/notificationsStyles.js";
 
-const useStyles = makeStyles(styles);
+interface StyleProps {
+  section: BaseCSSProperties;
+  title: BaseCSSProperties;
+  container: BaseCSSProperties;
+}
+
+type PropsClasses = Record<keyof StyleProps, string>;
+
+const useStyles = makeStyles<Theme, StyleProps>(() => styles as any);
 
 export default function SectionNotifications() {
-  const classes = useStyles();
+  const classes: PropsClasses = useStyles({} as StyleProps);
   return (
     <div className={classes.section} id="notifications">
       <div className={classes.container}>

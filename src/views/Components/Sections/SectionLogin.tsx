@@ -1,6 +1,8 @@
 import React from "react";
 // @material-ui/core components
-import { makeStyles } from "@material-ui/core/styles";
+import { Theme, makeStyles } from '@material-ui/core/styles';
+import { BaseCSSProperties } from '@material-ui/core/styles/withStyles';
+
 import InputAdornment from "@material-ui/core/InputAdornment";
 import Icon from "@material-ui/core/Icon";
 // @material-ui/icons
@@ -18,10 +20,24 @@ import CustomInput from "components/CustomInput/CustomInput.js";
 
 import styles from "assets/jss/material-kit-react/views/componentsSections/loginStyle.js";
 
-const useStyles = makeStyles(styles);
+interface StyleProps {
+  section: BaseCSSProperties;
+  container: BaseCSSProperties;
+  form: BaseCSSProperties;
+  cardHeader: BaseCSSProperties;
+  socialIcons: BaseCSSProperties;
+  divider: BaseCSSProperties;
+  cardFooter: BaseCSSProperties;
+  socialLine: BaseCSSProperties;
+  inputIconsColor: BaseCSSProperties;
+}
+
+type PropsClasses = Record<keyof StyleProps, string>;
+
+const useStyles = makeStyles<Theme, StyleProps>(() => styles as any);
 
 export default function SectionLogin() {
-  const classes = useStyles();
+  const classes: PropsClasses = useStyles({} as StyleProps);
   return (
     <div className={classes.section}>
       <div className={classes.container}>

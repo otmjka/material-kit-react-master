@@ -1,46 +1,63 @@
 /*eslint-disable*/
-import React from "react";
-import DeleteIcon from "@material-ui/icons/Delete";
-import IconButton from "@material-ui/core/IconButton";
+import React from 'react';
+import DeleteIcon from '@material-ui/icons/Delete';
+import IconButton from '@material-ui/core/IconButton';
 // react components for routing our app without refresh
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 // @material-ui/core components
-import { makeStyles } from "@material-ui/core/styles";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import Tooltip from "@material-ui/core/Tooltip";
+import { Theme, makeStyles } from '@material-ui/core/styles';
+import { BaseCSSProperties } from '@material-ui/core/styles/withStyles';
+
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import Tooltip from '@material-ui/core/Tooltip';
 
 // @material-ui/icons
-import { Apps, MonetizationOnRounded, PersonAdd, LockOpen } from "@material-ui/icons";
+import {
+  Apps,
+  MonetizationOnRounded,
+  PersonAdd,
+  LockOpen
+} from '@material-ui/icons';
 
 // core components
-import CustomDropdown from "components/CustomDropdown/CustomDropdown.js";
-import Button from "components/CustomButtons/Button.js";
+import CustomDropdown from 'components/CustomDropdown/CustomDropdown.js';
+import Button from 'components/CustomButtons/Button';
 
-import styles from "assets/jss/material-kit-react/components/headerLinksStyle.js";
+import styles from 'assets/jss/material-kit-react/components/headerLinksStyle.js';
 
-const useStyles = makeStyles(styles);
+interface StyleProps {
+  grid: BaseCSSProperties;
+  list: BaseCSSProperties;
+  listItem: BaseCSSProperties;
+  listItemText: BaseCSSProperties;
+  navLink: BaseCSSProperties;
+  notificationNavLink: BaseCSSProperties;
+  registerNavLink: BaseCSSProperties;
+  navLinkActive: BaseCSSProperties;
+  icons: BaseCSSProperties;
+  socialIcons: BaseCSSProperties;
+  dropdownLink: BaseCSSProperties;
+  tooltip: BaseCSSProperties;
+  marginRight5: BaseCSSProperties;
+}
 
-export default function HeaderLinks(props) {
-  const classes = useStyles();
+type PropsClasses = Record<keyof StyleProps, string>;
+
+const useStyles = makeStyles<Theme, StyleProps>(() => styles as any);
+
+export default function HeaderLinks() {
+  const classes: PropsClasses = useStyles({} as StyleProps);
   return (
     <List className={classes.list}>
       <ListItem className={classes.listItem}>
-        <Button
-          href="/pricing"
-          color="transparent"
-          className={classes.navLink}
-        >
+        <Button href="/pricing" color="transparent" className={classes.navLink}>
           <MonetizationOnRounded className={classes.icons} /> Pricing
         </Button>
       </ListItem>
       <ListItem className={classes.listItem}>
-        <Button
-          href="/login"
-          color="transparent"
-          className={classes.navLink}
-        >
+        <Button href="/login" color="transparent" className={classes.navLink}>
           <LockOpen className={classes.icons} /> Login
         </Button>
       </ListItem>
@@ -62,7 +79,7 @@ export default function HeaderLinks(props) {
         <Tooltip
           id="instagram-twitter"
           title="Follow us on twitter"
-          placement={window.innerWidth > 959 ? "top" : "left"}
+          placement={window.innerWidth > 959 ? 'top' : 'left'}
           classes={{ tooltip: classes.tooltip }}
         >
           <Button
@@ -71,7 +88,7 @@ export default function HeaderLinks(props) {
             color="transparent"
             className={classes.navLink}
           >
-            <i className={classes.socialIcons + " fab fa-twitter"} />
+            <i className={classes.socialIcons + ' fab fa-twitter'} />
           </Button>
         </Tooltip>
       </ListItem>
@@ -79,7 +96,7 @@ export default function HeaderLinks(props) {
         <Tooltip
           id="instagram-facebook"
           title="Follow us on facebook"
-          placement={window.innerWidth > 959 ? "top" : "left"}
+          placement={window.innerWidth > 959 ? 'top' : 'left'}
           classes={{ tooltip: classes.tooltip }}
         >
           <Button
@@ -88,7 +105,7 @@ export default function HeaderLinks(props) {
             target="_blank"
             className={classes.navLink}
           >
-            <i className={classes.socialIcons + " fab fa-facebook"} />
+            <i className={classes.socialIcons + ' fab fa-facebook'} />
           </Button>
         </Tooltip>
       </ListItem>
@@ -96,7 +113,7 @@ export default function HeaderLinks(props) {
         <Tooltip
           id="instagram-tooltip"
           title="Follow us on instagram"
-          placement={window.innerWidth > 959 ? "top" : "left"}
+          placement={window.innerWidth > 959 ? 'top' : 'left'}
           classes={{ tooltip: classes.tooltip }}
         >
           <Button
@@ -105,7 +122,7 @@ export default function HeaderLinks(props) {
             target="_blank"
             className={classes.navLink}
           >
-            <i className={classes.socialIcons + " fab fa-instagram"} />
+            <i className={classes.socialIcons + ' fab fa-instagram'} />
           </Button>
         </Tooltip>
       </ListItem>

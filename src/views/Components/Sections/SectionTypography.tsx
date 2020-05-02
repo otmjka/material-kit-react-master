@@ -1,6 +1,8 @@
 import React from "react";
 // @material-ui/core components
-import { makeStyles } from "@material-ui/core/styles";
+import { Theme, makeStyles } from '@material-ui/core/styles';
+import { BaseCSSProperties } from '@material-ui/core/styles/withStyles';
+
 
 // @material-ui/icons
 
@@ -20,10 +22,32 @@ import image from "assets/img/faces/avatar.jpg";
 
 import styles from "assets/jss/material-kit-react/views/componentsSections/typographyStyle.js";
 
-const useStyles = makeStyles(styles);
+
+interface StyleProps {
+  defaultFontStyle: BaseCSSProperties;
+  defaultHeaderMargins: BaseCSSProperties;
+  quote: BaseCSSProperties;
+  quoteText: BaseCSSProperties;
+  quoteAuthor: BaseCSSProperties;
+  mutedText: BaseCSSProperties;
+  primaryText: BaseCSSProperties;
+  infoText: BaseCSSProperties;
+  successText: BaseCSSProperties;
+  warningText: BaseCSSProperties;
+  dangerText: BaseCSSProperties;
+  smallText: BaseCSSProperties;
+  section: BaseCSSProperties;
+  container: BaseCSSProperties;
+  title: BaseCSSProperties;
+}
+
+type PropsClasses = Record<keyof StyleProps, string>;
+
+const useStyles = makeStyles<Theme, StyleProps>(() => styles as any);
+
 
 export default function SectionTypography() {
-  const classes = useStyles();
+  const classes: PropsClasses = useStyles({} as StyleProps);
   return (
     <div className={classes.section}>
       <div className={classes.container}>

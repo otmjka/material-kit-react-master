@@ -1,54 +1,84 @@
-import React from "react";
+import React from 'react';
 // plugin that creates slider
 import Slider from "nouislider";
 // @material-ui/core components
-import { makeStyles } from "@material-ui/core/styles";
-import InputAdornment from "@material-ui/core/InputAdornment";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Checkbox from "@material-ui/core/Checkbox";
-import Radio from "@material-ui/core/Radio";
-import Switch from "@material-ui/core/Switch";
+import { Theme, makeStyles } from '@material-ui/core/styles';
+import { BaseCSSProperties } from '@material-ui/core/styles/withStyles';
+
+import InputAdornment from '@material-ui/core/InputAdornment';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
+import Radio from '@material-ui/core/Radio';
+import Switch from '@material-ui/core/Switch';
 // @material-ui/icons
-import Favorite from "@material-ui/icons/Favorite";
-import People from "@material-ui/icons/People";
-import Check from "@material-ui/icons/Check";
-import FiberManualRecord from "@material-ui/icons/FiberManualRecord";
+import Favorite from '@material-ui/icons/Favorite';
+import People from '@material-ui/icons/People';
+import Check from '@material-ui/icons/Check';
+import FiberManualRecord from '@material-ui/icons/FiberManualRecord';
 // core components
-import GridContainer from "components/Grid/GridContainer.js";
-import GridItem from "components/Grid/GridItem.js";
-import Button from "components/CustomButtons/Button.js";
-import CustomInput from "components/CustomInput/CustomInput.js";
-import CustomLinearProgress from "components/CustomLinearProgress/CustomLinearProgress.js";
-import Paginations from "components/Pagination/Pagination.js";
-import Badge from "components/Badge/Badge.js";
+import GridContainer from 'components/Grid/GridContainer';
+import GridItem from "components/Grid/GridItem";
+import Button from "components/CustomButtons/Button";
+import CustomInput from "components/CustomInput/CustomInput";
+import CustomLinearProgress from "components/CustomLinearProgress/CustomLinearProgress";
+import Paginations from "components/Pagination/Pagination";
+import Badge from "components/Badge/Badge";
 
-import styles from "assets/jss/material-kit-react/views/componentsSections/basicsStyle.js";
+import styles from 'assets/jss/material-kit-react/views/componentsSections/basicsStyle.js';
 
-const useStyles = makeStyles(styles);
+interface StyleProps {
+  container: BaseCSSProperties;
+  sections: BaseCSSProperties;
+  title: BaseCSSProperties;
+  space50: BaseCSSProperties;
+  space70: BaseCSSProperties;
+  icons: BaseCSSProperties;
+  checkboxAndRadio: BaseCSSProperties;
+  checkboxAndRadioHorizontal: BaseCSSProperties;
+  checkedIcon: BaseCSSProperties;
+  uncheckedIcon: BaseCSSProperties;
+  checked: BaseCSSProperties;
+  checkRoot: BaseCSSProperties;
+  label: BaseCSSProperties;
+  labelRoot: BaseCSSProperties;
+  disabledCheckboxAndRadio: BaseCSSProperties;
+  radioUnchecked: BaseCSSProperties;
+  radioChecked: BaseCSSProperties;
+  radio: BaseCSSProperties;
+  radioRoot: BaseCSSProperties;
+
+  switchBase: BaseCSSProperties;
+  switchChecked: BaseCSSProperties;
+  switchIcon: BaseCSSProperties;
+  switchBar: BaseCSSProperties;
+}
+
+type PropsClasses = Record<keyof StyleProps, string>;
+
+const useStyles = makeStyles<Theme, StyleProps>(() => styles as any);
 
 export default function SectionBasics() {
-  const classes = useStyles();
+  const classes: PropsClasses = useStyles({} as StyleProps);
+
   const [checked, setChecked] = React.useState([24, 22]);
   const [selectedEnabled, setSelectedEnabled] = React.useState("b");
   const [checkedA, setCheckedA] = React.useState(true);
   const [checkedB, setCheckedB] = React.useState(false);
   React.useEffect(() => {
-    if (
-      !document
-        .getElementById("sliderRegular")
-        .classList.contains("noUi-target")
-    ) {
-      Slider.create(document.getElementById("sliderRegular"), {
+    if (document === null) return
+    const el: HTMLElement | null = document.getElementById("sliderRegular")
+    if (el && !el.classList.contains("noUi-target")) {
+      Slider.create(el, {
         start: [40],
         connect: [true, false],
         step: 1,
         range: { min: 0, max: 100 }
       });
     }
-    if (
-      !document.getElementById("sliderDouble").classList.contains("noUi-target")
+    const sliderDoubleEl: HTMLElement | null = document.getElementById("sliderDouble")
+    if (sliderDoubleEl && !sliderDoubleEl.classList.contains("noUi-target")
     ) {
-      Slider.create(document.getElementById("sliderDouble"), {
+      Slider.create(sliderDoubleEl, {
         start: [20, 60],
         connect: [false, true, false],
         step: 1,
@@ -57,7 +87,7 @@ export default function SectionBasics() {
     }
     return function cleanup() {};
   });
-  const handleToggle = value => {
+  const handleToggle = (value: number) => {
     const currentIndex = checked.indexOf(value);
     const newChecked = [...checked];
 
@@ -84,19 +114,19 @@ export default function SectionBasics() {
           </div>
           <GridContainer justify="center">
             <GridItem xs={12} sm={12} md={8}>
-              <Button color="primary">Default</Button>
-              <Button color="primary" round>
-                round
-              </Button>
-              <Button color="primary" round>
-                <Favorite className={classes.icons} /> with icon
-              </Button>
-              <Button justIcon round color="primary">
-                <Favorite className={classes.icons} />
-              </Button>
-              <Button color="primary" simple>
-                simple
-              </Button>
+            <Button color="primary">Default</Button>
+            <Button color="primary" round>
+              round
+            </Button>
+            <Button color="primary" round>
+              <Favorite className={classes.icons} /> with icon
+            </Button>
+            <Button justIcon round color="primary">
+              <Favorite className={classes.icons} />
+            </Button>
+            <Button color="primary" simple>
+              simple
+            </Button>
             </GridItem>
           </GridContainer>
           <div className={classes.title}>

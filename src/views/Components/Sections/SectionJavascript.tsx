@@ -2,7 +2,9 @@ import React from "react";
 // react plugin for creating date-time-picker
 import Datetime from "react-datetime";
 // @material-ui/core components
-import { makeStyles } from "@material-ui/core/styles";
+import { Theme, makeStyles } from '@material-ui/core/styles';
+import { BaseCSSProperties } from '@material-ui/core/styles/withStyles';
+
 import Slide from "@material-ui/core/Slide";
 import IconButton from "@material-ui/core/IconButton";
 import Dialog from "@material-ui/core/Dialog";
@@ -23,16 +25,42 @@ import Button from "components/CustomButtons/Button.js";
 
 import styles from "assets/jss/material-kit-react/views/componentsSections/javascriptStyles.js";
 
-const useStyles = makeStyles(styles);
+interface StyleProps {
+  center: BaseCSSProperties;
+  section: BaseCSSProperties;
+  container: BaseCSSProperties;
+  title: BaseCSSProperties;
+  icon: BaseCSSProperties;
+  label: BaseCSSProperties;
+  tooltip: BaseCSSProperties;
+  // ...popoverStyles
+  popover: BaseCSSProperties;
+  popoverBottom: BaseCSSProperties;
+  popoverHeader: BaseCSSProperties;
+  popoverBody: BaseCSSProperties;
+  // modal
+  modal: BaseCSSProperties;
+  modalHeader: BaseCSSProperties;
+  modalTitle: BaseCSSProperties;
+  modalCloseButton: BaseCSSProperties;
+  modalClose: BaseCSSProperties;
+  modalBody: BaseCSSProperties;
+  modalFooter: BaseCSSProperties;
+  modalFooterCenter: BaseCSSProperties;
+}
 
-const Transition = React.forwardRef(function Transition(props, ref) {
-  return <Slide direction="down" ref={ref} {...props} />;
-});
+type PropsClasses = Record<keyof StyleProps, string>;
 
-Transition.displayName = "Transition";
+const useStyles = makeStyles<Theme, StyleProps>(() => styles as any);
+
+// const Transition = React.forwardRef(function Transition(props, ref) {
+//   return <Slide direction="down" ref={ref} {...props} />; // @ts-ignore
+// });
+//
+// Transition.displayName = "Transition";
 
 export default function SectionJavascript() {
-  const classes = useStyles();
+  const classes: PropsClasses = useStyles({} as StyleProps);
   const [anchorElLeft, setAnchorElLeft] = React.useState(null);
   const [anchorElTop, setAnchorElTop] = React.useState(null);
   const [anchorElBottom, setAnchorElBottom] = React.useState(null);
@@ -65,7 +93,6 @@ export default function SectionJavascript() {
                     paper: classes.modal
                   }}
                   open={classicModal}
-                  TransitionComponent={Transition}
                   keepMounted
                   onClose={() => setClassicModal(false)}
                   aria-labelledby="classic-modal-slide-title"
