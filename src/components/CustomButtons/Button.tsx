@@ -40,13 +40,11 @@ interface StyleProps {
 }
 type PropsClasses = Record<keyof StyleProps, string>;
 
-// let styles: StyleProps = buttonStyle
-
 const makeComponentStyles = makeStyles<Theme, StyleProps>(
   () => ({ ...buttonStyle } as any)
 );
 
-const RegularButton = React.forwardRef((props: RegularButtonProps, ref) => {
+const RegularButton = React.forwardRef((props: RegularButtonProps, ref: any) => {
   const {
     color,
     round,
